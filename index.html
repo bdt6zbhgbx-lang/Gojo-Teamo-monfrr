@@ -1,0 +1,248 @@
+# Gojo-Teamo-monfrr
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Gojo</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0a1a2b;
+      --card: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.16);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --glow: rgba(120,190,255,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(120,190,255,.25), transparent 55%),
+        radial-gradient(800px 520px at 85% 30%, rgba(170,120,255,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      overflow:hidden;
+    }
+
+    .stars{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.35;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent 40%),
+        radial-gradient(1px 1px at 120px 80px, #fff, transparent 40%),
+        radial-gradient(1.5px 1.5px at 210px 140px, #fff, transparent 40%),
+        radial-gradient(1px 1px at 320px 60px, #fff, transparent 40%),
+        radial-gradient(2px 2px at 420px 180px, #fff, transparent 40%),
+        radial-gradient(1px 1px at 520px 90px, #fff, transparent 40%),
+        radial-gradient(1.5px 1.5px at 620px 160px, #fff, transparent 40%),
+        radial-gradient(1px 1px at 740px 120px, #fff, transparent 40%);
+      background-size: 800px 220px;
+      animation: drift 18s linear infinite;
+    }
+    @keyframes drift{
+      from{ transform: translateY(0); }
+      to{ transform: translateY(220px); }
+    }
+
+    .card{
+      width:min(720px, 100%);
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        0 0 70px rgba(120,190,255,.10);
+      position:relative;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:rgba(120,190,255,.95);
+      box-shadow:0 0 18px var(--glow);
+    }
+
+    h1{
+      margin:16px 0 10px;
+      font-size: clamp(30px, 4.2vw, 44px);
+      line-height:1.08;
+    }
+    p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height:1.6;
+    }
+
+    .quote{
+      margin-top:18px;
+      padding:16px 16px;
+      border-left:4px solid rgba(120,190,255,.65);
+      background:rgba(255,255,255,.05);
+      border-radius:14px;
+      color:rgba(255,255,255,.84);
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    button{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:15px;
+      color:rgba(255,255,255,.92);
+      background:rgba(120,190,255,.18);
+      border:1px solid rgba(120,190,255,.32);
+      transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+    }
+    button:hover{
+      background:rgba(120,190,255,.24);
+      box-shadow:0 0 30px rgba(120,190,255,.18);
+    }
+    button:active{ transform: scale(.98); }
+
+    .ghost{
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--stroke);
+    }
+
+    .footer{
+      margin-top:14px;
+      font-size:13px;
+      color:rgba(255,255,255,.55);
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:20px;
+      transform:translateX(-50%);
+      background:rgba(10,16,32,.88);
+      border:1px solid rgba(255,255,255,.14);
+      color:rgba(255,255,255,.9);
+      padding:12px 14px;
+      border-radius:14px;
+      box-shadow:0 16px 40px rgba(0,0,0,.45);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .25s ease, transform .25s ease;
+      backdrop-filter: blur(10px);
+      max-width:min(560px, calc(100% - 40px));
+      text-align:center;
+    }
+    .toast.show{
+      opacity:1;
+      transform:translateX(-50%) translateY(-6px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+
+  <main class="card">
+    <div class="badge">
+      <span class="dot"></span>
+      Para mi bro <span style="color:rgba(255,255,255,.92)">Gojo</span>
+    </div>
+
+    <h1>Bro, te quiero mucho 🤍</h1>
+
+    <p>
+      Gojo, te lo digo claro: <b>te aprecio una locura</b>. Eres de esas personas qui
+    cassent les couilles et personne aime mais t mon pote  .
+    </p>
+
+    <p>
+      Y pase lo que pase, <b>nuestra amistad nunca se va a romper</b>.
+      Da igual las vueltas de la vida o las apuestas perdidas monfrr:
+      nosotros seguimos firmes.
+    </p>
+
+    <div class="quote" id="mensaje">
+      “Con todo lo que hemos vivido, lo único seguro es esto: yo estoy contigo MON GROS BEBE.”
+    </div>
+
+    <div class="actions">
+      <button id="btnCambiar">Cambiar frase</button>
+      <button class="ghost" id="btnCopiar">Copiar mensaje</button>
+    </div>
+
+    <div class="footer">
+      Hecho con cariño. Si Gojo es real, esta página también.
+    </div>
+  </main>
+
+  <div class="toast" id="toast">✅ Copiado</div>
+
+  <script>
+    const frases = [
+      "“Bro, gracias por estar. Lo nuestro es para siempre.”",
+      "“Pase lo que pase: lealtad, apostar, beber alcohol, pegar a nuestros hijos y mujeres y risas. Siempre.”",
+      "“Nada puede con una amistad de verdad.”",
+      "“Eres mi hermano, y eso no se negocia a no ser que me den un gros tacos XXL✌🏼😭.”",
+      "“Con todo lo que hemos vivido siempre estaremos juntos frr estamos condenados.”"
+    ];
+
+    const mensaje = document.getElementById("mensaje");
+    const btnCambiar = document.getElementById("btnCambiar");
+    const btnCopiar = document.getElementById("btnCopiar");
+    const toast = document.getElementById("toast");
+
+    btnCambiar.addEventListener("click", () => {
+      const i = Math.floor(Math.random() * frases.length);
+      mensaje.textContent = frases[i];
+    });
+
+    btnCopiar.addEventListener("click", async () => {
+      const texto = [
+        "MONFRR te quiero mucho 🤍",
+        "Nuestra amistad nunca se va a romper por ninguna puta monfrr.",
+        "Da igual lo que pase frr: yo estoy contigo bro.",
+        "",
+        mensaje.textContent
+      ].join("\n");
+
+      try{
+        await navigator.clipboard.writeText(texto);
+        toast.textContent = "✅ Copiado para enviárselo a Gojo";
+      }catch(e){
+        toast.textContent = "📋 No pude copiar automático, pero puedes seleccionar el texto.";
+      }
+
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1800);
+    });
+  </script>
+</body>
+</html>
